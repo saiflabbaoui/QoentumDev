@@ -107,13 +107,11 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus</id>
-            <name>kcmaven-release</name>
+            <id>release</id>
             <url>$http://localhost:8081/repository/kcmaven-release/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus</id>
-            <name>kcmaven-snapshot</name>
+            <id>snapshots</id>
             <url>$http://localhost:8081/repository/kcmaven-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
