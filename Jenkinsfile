@@ -1,7 +1,5 @@
 pipeline {
 	
-	
-	
     agent any 
     stages {
         stage('Checkout GIT') { 
@@ -19,7 +17,6 @@ pipeline {
 	    
 		        stage("Package") {
             steps {	
-		    		cmd.exe
 				bat """mvn clean package""";
 				echo'test'
             }
