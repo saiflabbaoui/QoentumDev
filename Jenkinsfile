@@ -1,4 +1,3 @@
-cmd.exe
 pipeline {
 	
 	
@@ -19,7 +18,8 @@ pipeline {
 	    
 	    
 		        stage("Package") {
-            steps {
+            steps {	
+		    		cmd.exe
 				bat """mvn clean package""";
 				echo'test'
             }
