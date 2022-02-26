@@ -10,8 +10,6 @@ pipeline {
         }
         stage("Test, Build") {
             steps {
-		     		def _path = "c:\\windows;c:\\windows\\system32"
-    				withEnv(["PATH+TOOLS=${_path}", "TMP=d:\\tmp"]) {
    				bat """mvn clean install"""
             }
         }
