@@ -10,7 +10,7 @@ pipeline {
         }
         stage("Test, Build") {
             steps {
-   				sh """mvn clean install"""
+   				bat """mvn clean install"""
             }
         }
 	    
