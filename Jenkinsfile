@@ -7,8 +7,7 @@ pipeline {
         stage('Checkout GIT') { 
             steps {
 			    echo 'Pulling...'
-				git branch: 'main',
-				url : 'https://github.com/saiflabbaoui/QoentumDev.git' ;
+				git url : 'https://github.com/saiflabbaoui/QoentumDev.git' ;
             }
         }
         stage("Test, Build") {
