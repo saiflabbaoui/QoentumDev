@@ -43,8 +43,20 @@ pipeline
                 		}
             		}
         	}
-		
-	
-		
+	    
+	    
     }
+	
+	post
+		{
+			success
+			{
+			emailext body: 'build success', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
+		    }
+		
+			failure
+			{
+			emailext body: 'build failure', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
+			}
+		}
 }
