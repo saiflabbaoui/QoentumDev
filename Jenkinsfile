@@ -39,7 +39,7 @@ pipeline
 			{
                 		withSonarQubeEnv('Sonar Server') 
 				{
-                    		sh "./gradlew sonarqube"
+                    		sh """mvn sonar:sonar"""
                 		}
             		}
         	}
