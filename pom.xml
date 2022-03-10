@@ -108,11 +108,11 @@
     <distributionManagement>
         <repository>
             <id>release</id>
-            <url>http://localhost:8081/repository/kcmaven-release/</url>
+            <url>http://192.168.22.226:8081/repository/kcmaven-release/</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
-            <url>http://localhost:8081/repository/kcmaven-snapshot/</url>
+            <url>http://192.168.22.226:8081/repository/kcmaven-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
 
