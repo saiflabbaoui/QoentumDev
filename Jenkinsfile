@@ -25,12 +25,15 @@ pipeline {
 			}
 		}
 	
-		stage("Sonar") {
-            steps {
-				sh """mvn sonar:sonar""";
-				echo'sonar'
-            }
+		
         	}
+		 stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "./gradlew sonarqube"
+                }
+            }
+        }
 		post{
 		success{
 		emailext body: 'build success', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
