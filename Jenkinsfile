@@ -10,13 +10,6 @@ pipeline {
 				git url : 'https://github.com/saiflabbaoui/QoentumDev.git' ;
             }
         }
-        stage("Test, Build") {
-            steps {
-				sh """mvn clean install"""
-            }
-        }
-	    
-	    
 		        stage("Package") {
             steps {
 				sh """mvn clean package""";
@@ -31,6 +24,13 @@ pipeline {
             }
 			}
 		}
+	
+		stage("Sonar") {
+            steps {
+				bat """mvn sonar:sonar""";
+				echo'sonar'
+            }
+        	}
 		post{
 		success{
 		emailext body: 'build success', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
