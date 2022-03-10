@@ -47,16 +47,12 @@ pipeline
 	    
     }
 	
-	post
-		{
-			success
-			{
-			emailext body: 'build success', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
-		    }
-		
-			failure
-			{
-			emailext body: 'build failure', subject: 'Jenkins', to: 'inesboukhris20@gmail.com'
-			}
-		}
+	post 
+	{
+    		always {
+       			mail to: 'inesboukhris20@gmail.com',
+          		subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+         		 body: "${env.BUILD_URL} has result ${currentBuild.result}"
+    			}
+  	}
 }
