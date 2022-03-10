@@ -28,7 +28,7 @@ pipeline
 		{
             steps 
 			{
-				sh """mvn deploy:deploy-file -DgroupId=com.sfm -DartifactId=qoentum -Dversion=1.1.0 -Dpackaging=war -DrepositoryId=release -Durl=http://192.168.22.226:8081/repository/kcmaven-release/ -Dfile=pom.xml""";
+				sh """mvn deploy""";
 				echo'nexus'
             }
 		}
