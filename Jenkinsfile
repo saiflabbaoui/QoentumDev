@@ -12,21 +12,21 @@ pipeline {
         }
         stage("Test, Build") {
             steps {
-				bat """mvn clean install"""
+				sh """mvn clean install"""
             }
         }
 	    
 	    
 		        stage("Package") {
             steps {
-				bat """mvn clean package""";
+				sh """mvn clean package""";
 				echo'test'
             }
         }
 		
 		stage("Nexus") {
             steps {
-				bat """mvn deploy:deploy-file -DgroupId=com.sfm -DartifactId=qoentum -Dversion=1.1.0 -Dpackaging=war -DrepositoryId=release -Durl=http://localhost:8081/repository/kcmaven-release/ -Dfile=pom.xml""";
+				sh """mvn deploy:deploy-file -DgroupId=com.sfm -DartifactId=qoentum -Dversion=1.1.0 -Dpackaging=war -DrepositoryId=release -Durl=http://192.168.22.226:8081/repository/kcmaven-release/ -Dfile=pom.xml""";
 				echo'nexus'
             }
 			}
