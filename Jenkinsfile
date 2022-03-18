@@ -4,6 +4,7 @@ pipeline
 	
 	
     agent any 
+    
     stages {
 
         stage('Checkout GIT') 
@@ -12,28 +13,28 @@ pipeline
 			{
 			    echo 'Pulling...'
 				git url : 'https://github.com/saiflabbaoui/QoentumDev.git' ;
-            }
-        }
+            		}
+        	}
 
-		stage("Package") 
+	stage("Package") 
 		{
             steps
 			 {
 				sh """mvn clean package""";
 				echo'test'
-            }
-        }
+            		}
+        	}
 		
-		stage("Nexus") 
+	stage("Nexus") 
 		{
             steps 
 			{
 				sh """mvn deploy""";
 				echo'nexus'
-            }
+            		}
 		}
-
-	    	 stage('SonarQube analysis') 
+	
+	stage('SonarQube analysis') 
 	    	{
             steps 
 			{
@@ -43,7 +44,14 @@ pipeline
                 		}
             		}
         	}
-	    
+	
+	stage('Docker Build') 
+	    {
+      		steps 
+		    {
+        			sh 'docker build -t qoentum:latest .'
+     		    }
+    	    }
 	    
     }
 	
