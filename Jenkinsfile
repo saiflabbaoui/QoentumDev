@@ -1,17 +1,12 @@
 pipeline 
 {
-	
-	
-	
     agent any 
-    
     stages {
 
         stage('Checkout GIT') 
 		{ 
             steps 
-			{
-			    echo 'Pulling...'
+			{	echo 'Pulling...'
 				git url : 'https://github.com/saiflabbaoui/QoentumDev.git' ;
             		}
         	}
@@ -19,8 +14,7 @@ pipeline
 	stage("Package") 
 		{
             steps
-			 {
-				sh """mvn clean package""";
+			 {	sh """mvn clean package""";
 				echo'test'
             		}
         	}
@@ -28,8 +22,7 @@ pipeline
 	stage("Nexus") 
 		{
             steps 
-			{
-				sh """mvn deploy""";
+			{	sh """mvn deploy""";
 				echo'nexus'
             		}
 		}
@@ -37,24 +30,12 @@ pipeline
 	stage('SonarQube analysis') 
 	    	{
             steps 
-			{
-                		withSonarQubeEnv('Sonar Server') 
-				{
-                    		sh """mvn sonar:sonar"""
-                		}
+			{	withSonarQubeEnv('Sonar Server') 
+				{	sh """mvn sonar:sonar"""    }
             		}
         	}
-	
-	stage('Docker Build') 
-	    {
-      		steps 
-		    {
-        			sh 'docker build -t qoentum:latest .'
-     		    }
-    	    }
 	    
     }
-	
 	post 
 	{
     		always {
