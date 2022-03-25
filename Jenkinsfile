@@ -1,6 +1,12 @@
 pipeline 
 {
     agent any 
+    environment 
+	{
+    		imagename = "iness22/qoentum"
+    		registryCredential = 'docker-hub'
+    		dockerImage = ''
+        }
     stages {
 
         stage('Checkout GIT') 
@@ -35,13 +41,27 @@ pipeline
             		}
         	}
 	    
-	stage('Docker Build') 
-	    {
-      		steps 
-		    {
-        			sh 'docker build -t qoentum:latest .'
-     		    }
-    	    }
+	stage('Building image')
+	    	{
+      	    steps
+			{
+        			script {  dockerImage = docker.build imagename}
+      			}
+    		}
+    
+	stage('Deploy Image') 
+	     {
+           steps
+		    {  script 
+		     	{
+          			docker.withRegistry( '', registryCredential ) 
+				{
+           			dockerImage.push("$BUILD_NUMBER")
+             			dockerImage.push('latest')
+				}
+       			 }
+    		    }
+    	     }
 	    
     }
 	post 
