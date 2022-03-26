@@ -20,7 +20,7 @@ pipeline
 	stage("Package") 
 		{
             steps
-			 {	sh """mvn clean package""";
+			 {	sh """mvn clean install""";
 				echo'test'
             		}
         	}
