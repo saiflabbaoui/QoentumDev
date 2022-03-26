@@ -3,8 +3,8 @@ pipeline
     agent any 
     environment 
 	{
-    		imagename = "iness22/qoentum"
-    		registryCredential = 'docker-hub'
+    		registry = "devopsqoentum/qoentum"
+    		registryCredential = 'dockerhub'
     		dockerImage = ''
         }
     stages {
@@ -45,7 +45,7 @@ pipeline
 	    	{
       	    steps
 			{
-        			script {  dockerImage = docker.build imagename}
+        			script {  dockerImage = docker.build registry + ":$BUILD_NUMBER"}
       			}
     		}
     
@@ -57,13 +57,26 @@ pipeline
           			docker.withRegistry( '', registryCredential ) 
 				{
            			dockerImage.push("$BUILD_NUMBER")
-             			dockerImage.push('latest')
+             			dockerImage.push()
 				}
        			 }
     		    }
     	     }
 	    
     }
+    stage('Clean up') {
+                steps {
+                   bat "docker rmi $registry:$BUILD_NUMBER"
+                }
+            }
+            stage('Run image') {
+                steps {
+                   bat "docker run -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
+                }
+            }
+
+        }
+
 	post 
 	{
     		always {

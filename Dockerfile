@@ -1,4 +1,5 @@
-FROM anapsix/alpine-java 
-LABEL maintainer="inesboukhris20@gmail.com" 
-COPY /var/lib/jenkins/workspace/Qoentum/target/qoentum.war /home/devops-qoentum/qoentum.war 
-EXPOSE 8070
+FROM openjdk:8-jdk-alpine
+ENV MYSQL_HOST=mysql
+EXPOSE 8083
+ADD QoentumDev/target/qoentum.war qoentum.war
+ENTRYPOINT ["java","-war","/qoentum.war"]
