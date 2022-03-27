@@ -68,7 +68,7 @@ pipeline{
       }
       stage('Run image') {
           steps {
-              sh "docker run -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
+              sh "docker run -it -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
           }
       }
 
