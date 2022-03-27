@@ -4,7 +4,7 @@ pipeline
     environment 
 	{
     		registry = "devopsqoentum/qoentum"
-    		registryCredential = 'dockerhub'
+    		registryCredential = 'devopsqoentum'
     		dockerImage = ''
         }
     stages {
@@ -80,7 +80,7 @@ pipeline
 	post 
 	{
     		always {
-       			mail to: 'inesboukhris20@gmail.com',
+       			mail to: 'saif.labbaoui@esprit.tn',
           		subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
          		 body: "${env.BUILD_URL} has result ${currentBuild.result}"
     			}
