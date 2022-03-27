@@ -63,12 +63,12 @@ pipeline{
 
       stage('Clean up') {
           steps {
-              bat "docker rmi $registry:$BUILD_NUMBER"
+              sh "docker rmi $registry:$BUILD_NUMBER"
           }
       }
       stage('Run image') {
           steps {
-              bat "docker run -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
+              sh "docker run -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
           }
       }
 
