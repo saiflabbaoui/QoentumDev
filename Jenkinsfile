@@ -2,8 +2,8 @@ pipeline{
       agent any
       environment
       {
-        registry = "devopsqoentum/qoentum"
-        registryCredential = 'devopsqoentum'
+        registry = "iness22/qoentum"
+        registryCredential = 'docker-hub'
         dockerImage = ''
       }
     stages {
@@ -77,7 +77,7 @@ pipeline{
     post
     {
         always {
-      mail to: 'saif.labbaoui@esprit.tn',
+      mail to: 'inesboukhris20@gmail.com',
       subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
       body: "${env.BUILD_URL} has result ${currentBuild.result}"
       }
