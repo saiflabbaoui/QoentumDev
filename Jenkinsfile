@@ -47,7 +47,7 @@ pipeline{
           }
       }
 
-      stage('Deploy Image')
+      stage('Pushing Image')
       {
           steps
               { script
@@ -70,6 +70,12 @@ pipeline{
           steps {
               sh "docker run -it -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
           }
+      }
+          
+      
+      stage('Deploying App to Kubernetes') {
+      
+      
       }
 
 
