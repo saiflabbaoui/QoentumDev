@@ -58,11 +58,7 @@ pipeline{
               sh "docker rmi $registry:$BUILD_NUMBER"
           }
       }
-      stage('Run image') {
-          steps {
-              sh "docker run -it -d --name qoentum --link mysql:mysql -p 8083:8083 $registry:$BUILD_NUMBER"
-          }
-      }
+    
           
       
       stage('Deploying App to Kubernetes') {
