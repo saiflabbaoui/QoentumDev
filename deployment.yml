@@ -16,7 +16,7 @@ metadata :
     spec: 
       containers: 
       - name: qoentum-dev
-          image: iness22/qoentum
+          image: iness22/qoentum:42
           ports: 
           - containerPort: 8083
       - name: database
