@@ -16,10 +16,10 @@ metadata :
     spec: 
       containers: 
       - name: qoentum-dev
-          image: iness22/qoentum
-          ports: 
-          - containerPort: 8083
+      image: iness22/qoentum
+      ports: 
+      - containerPort: 8083
       - name: database
-          image: mysql:latest
-          ports: 
-          - containerPort: 3306
+      image: mysql:latest
+      ports: 
+      - containerPort: 3306
