@@ -4,7 +4,7 @@ metadata :
   name: qoentum
   labels:
     app: qoentum
-  spec:
+spec:
     replicas: 2
     selector: 
       matchlabels:
