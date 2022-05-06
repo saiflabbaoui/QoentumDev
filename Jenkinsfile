@@ -72,12 +72,5 @@ pipeline{
 
 
     }
-    post
-    {
-        always {
-      mail to: 'inesboukhris20@gmail.com',
-      subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-      body: "${env.BUILD_URL} has result ${currentBuild.result}"
-      }
-    }
+   
   }
