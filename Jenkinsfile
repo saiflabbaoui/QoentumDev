@@ -29,14 +29,7 @@ pipeline{
           }
         }
           
-         stage("Sonarqube")
-          {
-            steps
-                { withSonarQubeEnv('Sonar Server')
-                 { sh """mvn sonar:sonar"""}
-                }
-          
-          }
+         
           
       stage('Building image')
           {
