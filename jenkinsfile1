@@ -25,7 +25,7 @@ pipeline{
 }
 post {
 always {
-sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-serveur', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/opt/docker', remoteDirectorySDF: false, removePrefix: '/var/lib/jenkins/jobs/DevQoentum/workspace/target/', sourceFiles: '/var/lib/jenkins/jobs/DevQoentum/workspace/target/qoentum.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+sshPublisher(publishers: [sshPublisherDesc(configName: 'slst', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/opt/docker', remoteDirectorySDF: false, removePrefix: ' /var/lib/jenkins/jobs/DevQoentum/workspace/target', sourceFiles: ' /var/lib/jenkins/jobs/DevQoentum/workspace/target/qoentum.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 }
 }
 }
