@@ -25,7 +25,6 @@ pipeline{
 }
 post {
 always {
-sshPublisher(publishers: [sshPublisherDesc(configName: 'worker2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt/docker', remoteDirectorySDF: false, removePrefix: 'workspace/target', sourceFiles: 'workspace/target/qoentum.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-}
+sshPublisher(publishers: [sshPublisherDesc(configName: 'worker2', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//opt/docker', remoteDirectorySDF: false, removePrefix: 'workspace/target', sourceFiles: 'workspace/target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])}
 }
 }
