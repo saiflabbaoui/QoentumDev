@@ -64,6 +64,7 @@ pipeline{
       
       stage('Deploying App to Kubernetes') {
       steps {
+         sh "sudo kubectl delete deploy qoentum"   
         script {
           kubernetesDeploy(configs: "deployment.yml", kubeconfigId: "kubernetes")
         }
