@@ -1,11 +1,5 @@
 pipeline{
       agent any
-      environment
-      {
-        registry = "iness22/qoentum"
-        registryCredential = 'docker-hub'
-        dockerImage = ''
-      }
     stages {
         stage('Checkout GIT'){
           steps{
