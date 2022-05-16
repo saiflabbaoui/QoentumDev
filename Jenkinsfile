@@ -21,7 +21,13 @@ pipeline{
             }
           }
 
-          
+          stage("Nexus")
+          {
+            steps
+            { sh """mvn deploy""";
+              echo'nexus'
+            }
+          }
          
           
       stage('Building image')
