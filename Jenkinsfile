@@ -7,7 +7,12 @@ pipeline{
         dockerImage = ''
       }
     stages {
-        
+        stage('Checkout GIT'){
+          steps{
+            echo 'Pulling...'
+            git url: 'https://github.com/saiflabbaoui/QoentumDev.git' ;
+          }
+        }
         stage("Package")
           {
             steps
