@@ -6,7 +6,8 @@ pipeline{
         registryCredential = 'docker-hub'
         dockerImage = ''
       }
-    
+    stages {
+        
         stage("Package")
           {
             steps
