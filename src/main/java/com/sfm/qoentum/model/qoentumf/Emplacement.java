@@ -23,6 +23,8 @@ public class Emplacement {
 	private double longitude;
 	@Column
 	private boolean enabled;
+	@Column
+	private boolean enabled1;
 
 	@JsonIgnoreProperties("emplacement")
 	@OneToMany(mappedBy = "emplacement")
