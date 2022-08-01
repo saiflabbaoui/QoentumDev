@@ -16,6 +16,9 @@ public class Emplacement {
 
 	@Column(unique = true)
 	private String nom;
+	
+	@Column(unique = true)
+	private String nom1;
 
 	@Column
 	private double latitude;
